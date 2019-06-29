@@ -1,8 +1,8 @@
 import React  , { useState, useEffect }  from 'react'
-import draculatext from './dracula.txt'
-import _ from 'lodash'
+import draculatext from './dracula/dracula.txt'
 
-const Dracula = () => {
+
+const Dracula = (props) => {
     
     const [text, setText] = useState([])
     
@@ -11,7 +11,6 @@ const Dracula = () => {
         const response = await fetch(draculatext);
         const finalresponse = await response.text();
         const re = finalresponse.split(".");
-        // const final =  _.shuffle(re);
         setText(re);
       };
   
@@ -44,11 +43,11 @@ const Dracula = () => {
    function paragraphHTML () {
     const numberOfParagraphs = 5;
     let allParagraphs = [];
-    // Generate the number of paragraphs as specified by the user
+   
     while (allParagraphs.length < numberOfParagraphs) {
       allParagraphs.push(getParagraph());
     }
-    // Convert array into HTML string
+    
     let paragraphHTML = '';
     allParagraphs.forEach(function (paragraph) {
       paragraphHTML +=   paragraph + '.' ;
