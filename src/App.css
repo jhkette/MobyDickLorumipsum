@@ -1,6 +1,19 @@
-.App {
+.App{
+  background-image: url('./dracula.jpg');
+  background-repeat: no-repeat;
+  /* background: cover; */
+  min-height: 100vh;
+  background-size: cover;
+}
+
+.main {
   text-align: left;
-  width: 90%;
-  margin: 5rem auto;
+  width: 70%;
+  margin: auto;
  
+}
+
+.dracula{
+  background-color: white;
+  z-index: 2;
 }

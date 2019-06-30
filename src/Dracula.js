@@ -98,7 +98,7 @@ const Dracula = (props) => {
  
   
   return (
-    <div>
+    <div className="dracula">
       <div ref={textAreaRef} dangerouslySetInnerHTML ={totalParagraphs() }  />
       <button onClick={copyToClipboard}>Copy</button> 
     </div>

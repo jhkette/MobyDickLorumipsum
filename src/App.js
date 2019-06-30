@@ -9,6 +9,10 @@ function App() {
   // const [paragraphs, setparagraphs] = useState(null)
   const [submitpara, setsubmitpara] = useState(null);
 
+  // useEffect(() => {
+  //   settextVisible()
+  // }
+
   function handleSubmit(e) {
     console.log(e);
     e.preventDefault();
