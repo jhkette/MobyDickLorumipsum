@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="App">
       <main className="main">
-        <div class="opacity">
+        <div className="opacity">
         <h1>Moby Dick -  <em>or the whale</em></h1>
       
         <h5>Generates random sentences from Moby Dick to be used as a more

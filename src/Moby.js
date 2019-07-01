@@ -32,6 +32,7 @@ const MobyD = React.memo(function MobyD(props) {
    } 
 
    function getParagraph (){
+     setTimeout(500)
     let paragraph = '';
     // Set the minimum number of words
     let sentences = 6;
@@ -74,7 +75,8 @@ function totalParagraphs(){
     totalParagraph.forEach(function(paragraph){
       finalParagraphs += paragraph;
     })
-   setTimeout(300);
+  
+   console.log(finalParagraphs);
    return {__html:finalParagraphs};
   }
 
