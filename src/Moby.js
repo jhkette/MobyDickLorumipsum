@@ -47,7 +47,7 @@ const MobyD = React.memo(function MobyD(props) {
    }
      
    function paragraphHTML () {
-    const numberOfParagraphs = 4;
+    const numberOfParagraphs = 3;
     let allParagraphs = [];
    
     while (allParagraphs.length < numberOfParagraphs) {
