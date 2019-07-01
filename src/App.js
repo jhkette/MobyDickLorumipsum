@@ -26,11 +26,13 @@ function App() {
   return (
     <div className="App">
       <main className="main">
+        <div class="opacity">
         <h1>Moby Dick -  <em>or the whale</em></h1>
       
         <h5>Generates random sentences from Moby Dick to be used as a more
           interesting substiute to Lorem Ipsum text. Press copy to copy to clipboard.
         </h5>
+        </div>
         <form action="/" method="POST" onSubmit={handleSubmit}>
           <input
             type="number"
