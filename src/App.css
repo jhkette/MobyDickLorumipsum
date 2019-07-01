@@ -1,8 +1,8 @@
 .App{
-  background-image: url('./images/moby1.jpg');
+  background-image: url('./images/moby3.jpg');
   background-repeat: no-repeat;
   /* background: cover; */
-  min-height: 190vh;
+  min-height: 160vh;
   background-size: cover;
   padding-bottom: 6rem;
 }
@@ -17,10 +17,10 @@
 }
 
 .opacity{
-  background-color: #d5e3ee;
-  opacity: .85;
+  background-color: white;
+  opacity: .8;
   padding: 2rem;
-  border-radius: .8rem;
+ 
 }
 
 .moby{
