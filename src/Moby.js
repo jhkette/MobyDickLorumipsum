@@ -19,14 +19,14 @@ const MobyD = React.memo(function MobyD(props) {
       const fetchData = async () => {
         const response = await fetch(mobyText);
         const finalresponse = await response.text();
-        const re = finalresponse.split(".");
+        const re = await finalresponse.split(".");
         setText(re);
       };
   
       fetchData();
     }, []);
 
-   function getRandomSentence (){
+ function getRandomSentence (){
     let randomSentence = text[Math.floor(Math.random() * text.length)];
     return randomSentence;
    } 
@@ -74,7 +74,7 @@ function totalParagraphs(){
     totalParagraph.forEach(function(paragraph){
       finalParagraphs += paragraph;
     })
-  
+   setTimeout(300);
    return {__html:finalParagraphs};
   }
 
