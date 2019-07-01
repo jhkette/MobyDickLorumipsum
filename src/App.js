@@ -1,32 +1,36 @@
 import React, { useState, useEffect, textAreaRef } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import Dracula from "./Dracula.js";
+import MobyD from "./Moby.js";
 
 function App() {
-  let paragraphs = null;
+ 
+  const [para, setpara] = useState(null);
   const [textVisible, settextVisible] = useState(false);
-  // const [paragraphs, setparagraphs] = useState(null)
   const [submitpara, setsubmitpara] = useState(null);
 
-  // useEffect(() => {
-  //   settextVisible()
-  // }
 
   function handleSubmit(e) {
     console.log(e);
     e.preventDefault();
+    if(para > 0){
     settextVisible(true);
-    setsubmitpara(paragraphs);
+    setsubmitpara(para);
+    }
   }
 
   function number(e) {
-    paragraphs = e;
+    setpara(e);
   }
 
   return (
     <div className="App">
       <main className="main">
+        <h1>Moby Dick -  <em>or the whale</em></h1>
+      
+        <h5>Generates random sentences from Moby Dick to be used as a more
+          interesting substiute to Lorem Ipsum text.
+        </h5>
         <form action="/" method="POST" onSubmit={handleSubmit}>
           <input
             type="number"
@@ -37,7 +41,7 @@ function App() {
 
           <input type="submit" value="Generate" className="generate-button" />
         </form>
-        {textVisible && <Dracula paragraphs={submitpara} />}
+        {textVisible && <MobyD paragraphs={submitpara} />}
       </main>
     </div>
   );

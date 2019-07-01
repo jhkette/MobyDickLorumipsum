@@ -1,19 +1,72 @@
 .App{
-  background-image: url('./dracula.jpg');
+  background-image: url('./images/moby.jpg');
   background-repeat: no-repeat;
   /* background: cover; */
-  min-height: 100vh;
+  min-height: 190vh;
   background-size: cover;
+  padding-bottom: 6rem;
 }
 
 .main {
   text-align: left;
-  width: 70%;
+  width: 50%;
   margin: auto;
+  padding-top: 3rem;
+
  
 }
 
-.dracula{
+.moby{
   background-color: white;
   z-index: 2;
+  padding: 2rem;
+  margin-top: 4rem;
+
+}
+
+.clipboard{
+  margin-top: 2rem;
+  padding: 1.5rem 3rem;
+  background-color: #2e6289;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.clipboard:hover {
+  background-color: #080813;
+  color: white;
+  box-shadow: 1px 1px 25px #1e415c;
+}
+
+.clipboard:active{
+  background-color: #b82a2a;
+  color: white;
+}
+
+.paragraph-number{
+  height: 3.5rem;
+  width: 12rem;
+  font-size: 1.5rem;
+}
+
+input[type="submit"]{
+  margin-left: 2rem;
+  margin-top: 2rem;
+  padding: 1.5rem 3rem;
+  background-color: #2e6289;
+  border: 0;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+input[type="submit"]:hover{
+  background-color: #080813;
+  color: white;
+  box-shadow: 1px 1px 25px #1e415c;
+}
+
+input[type="submit"]:active{
+  background-color: #b82a2a;
+  color: white;
 }

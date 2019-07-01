@@ -1,15 +1,21 @@
 import React  , {useRef, useState, useEffect }  from 'react'
-import draculatext from './dracula/dracula.txt'
+import mobyText from './moby/moby.txt'
 
 
-const Dracula = (props) => {
+// I'm using react memo here to ensure the component only
+// updates when it receives new props.
+// This means it doesn't update when paragraph number is increased,
+// only when the form is submitted and new props are sent to component. 
+const MobyD = React.memo(function MobyD(props) {
     
     const [text, setText] = useState([])
     const textAreaRef = useRef(null);
     
+    // https://www.robinwieruch.de/react-hooks-fetch-data/
+    // guidance on fetching data with react hooks
     useEffect(() => {
       const fetchData = async () => {
-        const response = await fetch(draculatext);
+        const response = await fetch(mobyText);
         const finalresponse = await response.text();
         const re = finalresponse.split(".");
         setText(re);
@@ -21,7 +27,6 @@ const Dracula = (props) => {
    function getRandomSentence (){
     let randomSentence = text[Math.floor(Math.random() * text.length)];
     return randomSentence;
-
    } 
 
    function getParagraph (){
@@ -42,7 +47,7 @@ const Dracula = (props) => {
    }
      
    function paragraphHTML () {
-    const numberOfParagraphs = 5;
+    const numberOfParagraphs = 4;
     let allParagraphs = [];
    
     while (allParagraphs.length < numberOfParagraphs) {
@@ -98,12 +103,16 @@ const Dracula = (props) => {
  
   
   return (
-    <div className="dracula">
+    <div>
+    <button onClick={copyToClipboard} className="clipboard">Copy</button> 
+    <div className="moby">
+      
       <div ref={textAreaRef} dangerouslySetInnerHTML ={totalParagraphs() }  />
-      <button onClick={copyToClipboard}>Copy</button> 
+      
+    </div>
     </div>
     
   )
-}
+});
 
-export default Dracula
+export default MobyD
