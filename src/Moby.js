@@ -2,6 +2,7 @@ import React  , {useRef, useState, useEffect }  from 'react'
 import mobyText from './moby/moby.txt'
 
 
+
 // I'm using react memo here to ensure the component only
 // updates when it receives new props.
 // This means it doesn't update when paragraph number is increased,
@@ -9,6 +10,7 @@ import mobyText from './moby/moby.txt'
 const MobyD = React.memo(function MobyD(props) {
     
     const [text, setText] = useState([])
+  
     const textAreaRef = useRef(null);
     
     // https://www.robinwieruch.de/react-hooks-fetch-data/
@@ -46,7 +48,7 @@ const MobyD = React.memo(function MobyD(props) {
 
    }
      
-   function paragraphHTML () {
+ function paragraphHTML () {
     const numberOfParagraphs = 3;
     let allParagraphs = [];
    
@@ -58,11 +60,11 @@ const MobyD = React.memo(function MobyD(props) {
     allParagraphs.forEach(function (paragraph) {
       paragraphHTML +=   paragraph + '.' ;
     });
-    paragraphHTML = '<p>' + paragraphHTML + '</p>'
+    paragraphHTML =  '<p>' + paragraphHTML + '</p>'
     return paragraphHTML 
   };
 
-  function totalParagraphs(){
+function totalParagraphs(){
     let totalParagraph = [];
     const total = props.paragraphs;
     while(totalParagraph.length < total){
@@ -72,7 +74,8 @@ const MobyD = React.memo(function MobyD(props) {
     totalParagraph.forEach(function(paragraph){
       finalParagraphs += paragraph;
     })
-    return {__html:finalParagraphs};
+  
+   return {__html:finalParagraphs};
   }
 
   function copyToClipboard (e){
@@ -99,7 +102,7 @@ const MobyD = React.memo(function MobyD(props) {
     document.body.removeChild(el); // Remove the <textarea> element
   
   }
-      
+  
  
   
   return (
@@ -107,7 +110,7 @@ const MobyD = React.memo(function MobyD(props) {
     <button onClick={copyToClipboard} className="clipboard">Copy</button> 
     <div className="moby">
       
-      <div ref={textAreaRef} dangerouslySetInnerHTML ={totalParagraphs() }  />
+      <div ref={textAreaRef} dangerouslySetInnerHTML ={totalParagraphs()}  />
       
     </div>
     </div>
