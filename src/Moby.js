@@ -29,6 +29,7 @@ const MobyD = React.memo(function MobyD(props) {
     }, []);
 
  function getRandomSentence (){
+   
     let randomSentence =  text[Math.floor(Math.random() * text.length)]
     return randomSentence;
    } 
@@ -46,9 +47,8 @@ const MobyD = React.memo(function MobyD(props) {
       } else {
         paragraph = paragraph.concat(' ' + para );
       }
-    }
-  
     return paragraph;
+    }
 
    }
      
