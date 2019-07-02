@@ -4,18 +4,16 @@ import "./App.css";
 import MobyD from "./Moby.js";
 
 function App() {
- 
   const [para, setpara] = useState(null);
   const [textVisible, settextVisible] = useState(false);
   const [submitpara, setsubmitpara] = useState(null);
 
-
   function handleSubmit(e) {
     console.log(e);
     e.preventDefault();
-    if(para > 0){
-    settextVisible(true);
-    setsubmitpara(para);
+    if (para > 0) {
+      settextVisible(true);
+      setsubmitpara(para);
     }
   }
 
@@ -27,11 +25,15 @@ function App() {
     <div className="App">
       <main className="main">
         <div className="opacity">
-        <h1>Moby Dick -  <em>or the whale</em></h1>
-      
-        <h5>Generates random sentences from Moby Dick to be used as a more
-          interesting substiute to Lorem Ipsum text. Press copy to copy to clipboard.
-        </h5>
+          <h1>
+            Moby Dick - <em>or the whale</em>
+          </h1>
+
+          <h5>
+            Generates random sentences from Moby Dick to be used as a more
+            interesting substiute to Lorem Ipsum text. Press copy to copy to
+            clipboard.
+          </h5>
         </div>
         <form action="/" method="POST" onSubmit={handleSubmit}>
           <input
