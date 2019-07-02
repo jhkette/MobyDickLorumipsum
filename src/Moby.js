@@ -1,4 +1,5 @@
 import React  , {useRef, useState, useEffect }  from 'react'
+
 import mobyText from './moby/moby.txt'
 
 
@@ -20,6 +21,7 @@ const MobyD = React.memo(function MobyD(props) {
         const response = await fetch(mobyText);
         const finalresponse = await response.text();
         const re = await finalresponse.split(".");
+  
         setText(re);
       };
   
@@ -32,18 +34,19 @@ const MobyD = React.memo(function MobyD(props) {
    } 
   // use async await and then
  function getParagraph (){
-    
+    let para =  getRandomSentence()
     let paragraph = '';
     // Set the minimum number of words
    
     let firstSentence = true;
-  
+    if(para !== undefined){
       if (firstSentence) {
-        paragraph = paragraph.concat(getRandomSentence());
+        paragraph = paragraph.concat(para );
         firstSentence = false;
       } else {
-        paragraph = paragraph.concat(' ' + getRandomSentence());
+        paragraph = paragraph.concat(' ' + para );
       }
+    }
   
     return paragraph;
 
