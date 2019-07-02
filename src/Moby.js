@@ -27,24 +27,24 @@ const MobyD = React.memo(function MobyD(props) {
     }, []);
 
  function getRandomSentence (){
-    let randomSentence = text[Math.floor(Math.random() * text.length)];
+    let randomSentence =  text[Math.floor(Math.random() * text.length)]
     return randomSentence;
    } 
-
-   function getParagraph (){
-     setTimeout(500)
+  // use async await and then
+ function getParagraph (){
+    
     let paragraph = '';
     // Set the minimum number of words
-    let sentences = 6;
+   
     let firstSentence = true;
-    while (paragraph.length < sentences) {
+  
       if (firstSentence) {
         paragraph = paragraph.concat(getRandomSentence());
         firstSentence = false;
       } else {
         paragraph = paragraph.concat(' ' + getRandomSentence());
       }
-    }
+  
     return paragraph;
 
    }
