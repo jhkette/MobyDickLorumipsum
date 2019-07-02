@@ -25,40 +25,36 @@ const MobyD = React.memo(function MobyD(props) {
     fetchData();
   }, []);
 
-  function getRandomSentence (){
-   
-    let randomSentence =  text[Math.floor(Math.random() * text.length)]
+  function getRandomSentence() {
+    let randomSentence = text[Math.floor(Math.random() * text.length)];
     return randomSentence;
-   } 
+  }
   // use async await and then
- function getParagraph (){
-    let para =  getRandomSentence();
-    let paragraph = '';
-    // Set the minimum number of words
-   
+  function getParagraph() {
+    let para = getRandomSentence();
+    let paragraph = "";
     let firstSentence = true;
-    if(para !== undefined){
+    if (para !== undefined) {
       if (firstSentence) {
-        paragraph = paragraph.concat(para );
+        paragraph = paragraph.concat(para);
         firstSentence = false;
       } else {
-        paragraph = paragraph.concat(' ' + para );
+        paragraph = paragraph.concat(" " + para);
       }
-    
     }
     return paragraph;
-   }
+  }
 
   function paragraphHTML() {
-    const numberOfParagraphs = 3;
-    let allParagraphs = [];
+    const numberOfSentences = 3;
+    let allSentences = [];
 
-    while (allParagraphs.length < numberOfParagraphs) {
-      allParagraphs.push(getParagraph());
+    while (allSentences.length < numberOfSentences) {
+      allSentences.push(getParagraph());
     }
 
     let paragraphHTML = "";
-    allParagraphs.forEach(function(paragraph) {
+    allSentences.forEach(function(paragraph) {
       paragraphHTML += paragraph + ".";
     });
     paragraphHTML = "<p>" + paragraphHTML + "</p>";
@@ -94,10 +90,6 @@ const MobyD = React.memo(function MobyD(props) {
     el.innerHTML = text;
     // el.setAttribute('readonly', '');
     document.body.appendChild(el);
-    const selected =
-      document.getSelection().rangeCount > 0 // Check if there is any content selected previously
-        ? document.getSelection().getRangeAt(0) // Store selection if found
-        : false; // Mark as false to know no selection existed before
     el.select(); // Select the <textarea> content
     document.execCommand("copy"); // Copy - only works as a result of a user action (e.g. click events)
 

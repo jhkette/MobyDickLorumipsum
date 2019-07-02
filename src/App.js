@@ -1,5 +1,5 @@
-import React, { useState, useEffect, textAreaRef } from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
+
 import "./App.css";
 import MobyD from "./Moby.js";
 
