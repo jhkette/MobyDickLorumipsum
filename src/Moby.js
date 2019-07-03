@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
+import _ from 'lodash'
 
 import mobyText from "./moby/moby.txt";
 
@@ -9,39 +10,47 @@ import mobyText from "./moby/moby.txt";
 const MobyD = React.memo(function MobyD(props) {
   const [text, setText] = useState([]);
 
+
   const textAreaRef = useRef(null);
 
   // https://www.robinwieruch.de/react-hooks-fetch-data/
   // guidance on fetching data with react hooks
   useEffect(() => {
     const fetchData = async () => {
+      try {
       const response = await fetch(mobyText);
       const finalresponse = await response.text();
       const re = await finalresponse.split(".");
-
-      setText(re);
+      await setText(re);
+      }
+      catch (err){
+        console.log(err)
+      }
     };
 
     fetchData();
   }, []);
 
-  function getRandomSentence() {
+ function getRandomSentence() {
     let randomSentence = text[Math.floor(Math.random() * text.length)];
     return randomSentence;
   }
   // use async await and then
-  function getParagraph() {
-    let para = getRandomSentence();
+function getParagraph() {
+  
+    const para = getRandomSentence()
+  
+    
     let paragraph = "";
     let firstSentence = true;
-    if (para !== undefined) {
+    
       if (firstSentence) {
-        paragraph = paragraph.concat(para);
+       paragraph =   paragraph.concat(para);
         firstSentence = false;
       } else {
-        paragraph = paragraph.concat(" " + para);
+        paragraph =  paragraph.concat(" " + para);
       }
-    }
+    
     return paragraph;
   }
 
