@@ -41,13 +41,14 @@ function getRandomSentence() {
     while (allSentences.length < numberOfSentences) {
       allSentences.push(random());
     }
-
+   if(allSentences.length == 2){
     let paragraphHTML = "";
     allSentences.forEach(function(paragraph) {
       paragraphHTML += paragraph + ".";
     });
     paragraphHTML = "<p>" + paragraphHTML + "</p>";
     return paragraphHTML;
+  }
   }
 
 
