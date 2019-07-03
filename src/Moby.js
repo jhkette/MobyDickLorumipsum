@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import _ from 'lodash'
+import _ from "lodash";
 
 import mobyText from "./moby/moby.txt";
 
@@ -10,7 +10,6 @@ import mobyText from "./moby/moby.txt";
 const MobyD = React.memo(function MobyD(props) {
   const [text, setText] = useState([]);
 
-
   const textAreaRef = useRef(null);
 
   // https://www.robinwieruch.de/react-hooks-fetch-data/
@@ -18,21 +17,20 @@ const MobyD = React.memo(function MobyD(props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-      const response = await fetch(mobyText);
-      const finalresponse = await response.text();
-      const re = await finalresponse.split(".");
-      await setText(re);
-      }
-      catch (err){
-        console.log(err)
+        const response = await fetch(mobyText);
+        const finalresponse = await response.text();
+        const re = await finalresponse.split(".");
+        await setText(re);
+      } catch (err) {
+        console.log(err);
       }
     };
     fetchData();
   }, []);
 
-function getRandomSentence() {
-   function random(){
-    const randomSentence =   _.sample(text);
+  function getRandomSentence() {
+    function random() {
+      const randomSentence = _.sample(text);
       return randomSentence;
     }
     const numberOfSentences = 2;
@@ -41,17 +39,15 @@ function getRandomSentence() {
     while (allSentences.length < numberOfSentences) {
       allSentences.push(random());
     }
-   if(allSentences.length == 2){
-    let paragraphHTML = "";
-    allSentences.forEach(function(paragraph) {
-      paragraphHTML += paragraph + ".";
-    });
-    paragraphHTML = "<p>" + paragraphHTML + "</p>";
-    return paragraphHTML;
+    if (allSentences.length == 2) {
+      let paragraphHTML = "";
+      allSentences.forEach(function(paragraph) {
+        paragraphHTML += paragraph + ".";
+      });
+      paragraphHTML = "<p>" + paragraphHTML + "</p>";
+      return paragraphHTML;
+    }
   }
-  }
-
-
 
   function totalParagraphs() {
     let totalParagraph = [];
@@ -64,7 +60,6 @@ function getRandomSentence() {
       finalParagraphs += paragraph;
     });
     return { __html: finalParagraphs };
- 
   }
 
   function copyToClipboard(e) {
