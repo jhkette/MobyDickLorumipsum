@@ -31,11 +31,11 @@ const MobyD = React.memo(function MobyD(props) {
   }, []);
 
 function getRandomSentence() {
-    function random(){
-    const randomSentence = text[Math.floor(Math.random() * text.length)];
-    return randomSentence;
+   function random(){
+    const randomSentence =   _.sample(text);
+      return randomSentence;
     }
-    const numberOfSentences = 3;
+    const numberOfSentences = 2;
     let allSentences = [];
 
     while (allSentences.length < numberOfSentences) {
