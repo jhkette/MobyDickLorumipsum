@@ -27,47 +27,19 @@ const MobyD = React.memo(function MobyD(props) {
         console.log(err)
       }
     };
-
     fetchData();
   }, []);
 
 function getRandomSentence() {
+    function random(){
     const randomSentence = text[Math.floor(Math.random() * text.length)];
     return randomSentence;
-  }
-
-
-  // use async await and then
-function getParagraph() {
-
-  let paragraph = "";
- 
-    
-    const para  = getRandomSentence();
-    console.log(para);
-    let firstSentence = true;
-    if(para !== undefined){
-      if (firstSentence) {
-       paragraph =   paragraph.concat(para);
-        firstSentence = false;
-      } else {
-        paragraph =  paragraph.concat(" " + para);
-      }
-      return paragraph;
     }
-    else{
-      return 'loading';
-    }
-
-  }
-
-  function paragraphHTML() {
-   
     const numberOfSentences = 3;
     let allSentences = [];
 
     while (allSentences.length < numberOfSentences) {
-      allSentences.push(getParagraph());
+      allSentences.push(random());
     }
 
     let paragraphHTML = "";
@@ -76,24 +48,20 @@ function getParagraph() {
     });
     paragraphHTML = "<p>" + paragraphHTML + "</p>";
     return paragraphHTML;
- 
   }
 
+
+
   function totalParagraphs() {
-  
-    getRandomSentence()
     let totalParagraph = [];
     const total = props.paragraphs;
     while (totalParagraph.length < total) {
-      totalParagraph.push(paragraphHTML());
+      totalParagraph.push(getRandomSentence());
     }
     let finalParagraphs = "";
     totalParagraph.forEach(function(paragraph) {
       finalParagraphs += paragraph;
     });
-  
-
-   
     return { __html: finalParagraphs };
  
   }
