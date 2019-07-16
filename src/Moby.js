@@ -31,9 +31,7 @@ const MobyD = React.memo(function MobyD(props) {
     };
     fetchData();
   }, []);
-  const styles = {opacity: '0'};
-  const visblestyles = {opacity: '1'};
-  
+
   function getRandomSentence() {
     
     function random() {
@@ -96,7 +94,7 @@ const MobyD = React.memo(function MobyD(props) {
       <button onClick={copyToClipboard} className="clipboard">
         Copy
       </button>
-      <div className="moby"  styles ={props.textv ? styles: visblestyles}>
+      <div className="moby">
       {loading &&
         <div ref={textAreaRef} dangerouslySetInnerHTML={totalParagraphs()} />
       }
