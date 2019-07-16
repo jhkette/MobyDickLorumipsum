@@ -98,6 +98,7 @@ const MobyD = React.memo(function MobyD(props) {
       {loading &&
         <div ref={textAreaRef} dangerouslySetInnerHTML={totalParagraphs()} />
       }
+      {!loading && <p>Loading...</p> }
       </div>
     </div>
    
