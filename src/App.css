@@ -16,18 +16,25 @@
  
 }
 
-.opacity{
-  background-color: white;
-  opacity: .8;
-  padding: 2rem;
- 
+.notvisible {
+  transition: 1s;
 }
+
+.visible p{
+  opacity: 1;
+}
+.notvisible p{
+  opacity: 0;
+  transition: .3s;
+}
+
 
 .moby{
   background-color: white;
   z-index: 2;
   padding: 2rem;
   margin-top: 4rem;
+  transition: 1s;
 
 }
 

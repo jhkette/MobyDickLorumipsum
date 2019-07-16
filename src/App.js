@@ -9,7 +9,7 @@ function App() {
   const [submitpara, setsubmitpara] = useState(null);
 
   function handleSubmit(e) {
-    console.log(e);
+   
     e.preventDefault();
     if (para > 0) {
       settextVisible(true);
@@ -45,7 +45,7 @@ function App() {
 
           <input type="submit" value="Generate" className="generate-button" />
         </form>
-        {textVisible && <MobyD paragraphs={submitpara} />}
+        {textVisible && <MobyD paragraphs={submitpara} textv ={textVisible}  />}
       </main>
     </div>
   );

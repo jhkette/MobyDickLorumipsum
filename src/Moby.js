@@ -9,6 +9,7 @@ import mobyText from "./moby/moby.txt";
 // only when the form is submitted and new props are sent to component.
 const MobyD = React.memo(function MobyD(props) {
   const [text, setText] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const textAreaRef = useRef(null);
 
@@ -19,16 +20,22 @@ const MobyD = React.memo(function MobyD(props) {
       try {
         const response = await fetch(mobyText);
         const finalresponse = await response.text();
-        const re = await finalresponse.split(".");
+        const re = await finalresponse.split(".");        
         await setText(re);
       } catch (err) {
         console.log(err);
       }
+      finally {
+        await setLoading(true);
+      }
     };
     fetchData();
   }, []);
-
+  const styles = {opacity: '0'};
+  const visblestyles = {opacity: '1'};
+  
   function getRandomSentence() {
+    
     function random() {
       const randomSentence = _.sample(text);
       return randomSentence;
@@ -39,7 +46,7 @@ const MobyD = React.memo(function MobyD(props) {
     while (allSentences.length < numberOfSentences) {
       allSentences.push(random());
     }
-    if (allSentences.length == 2) {
+    if (allSentences.length === 2) {
       let paragraphHTML = "";
       allSentences.forEach(function(paragraph) {
         paragraphHTML += paragraph + ".";
@@ -49,8 +56,8 @@ const MobyD = React.memo(function MobyD(props) {
     }
   }
 
-  function totalParagraphs() {
-    let totalParagraph = [];
+ function totalParagraphs() {
+  let totalParagraph = [];
     const total = props.paragraphs;
     while (totalParagraph.length < total) {
       totalParagraph.push(getRandomSentence());
@@ -59,7 +66,8 @@ const MobyD = React.memo(function MobyD(props) {
     totalParagraph.forEach(function(paragraph) {
       finalParagraphs += paragraph;
     });
-    return { __html: finalParagraphs };
+ 
+    return { __html: finalParagraphs } 
   }
 
   function copyToClipboard(e) {
@@ -83,14 +91,18 @@ const MobyD = React.memo(function MobyD(props) {
   }
 
   return (
+   
     <div>
       <button onClick={copyToClipboard} className="clipboard">
         Copy
       </button>
-      <div className="moby">
+      <div className="moby"  styles ={props.textv ? styles: visblestyles}>
+      {loading &&
         <div ref={textAreaRef} dangerouslySetInnerHTML={totalParagraphs()} />
+      }
       </div>
     </div>
+   
   );
 });
 
