@@ -22,12 +22,11 @@ const MobyD = React.memo(function MobyD(props) {
         const finalresponse = await response.text();
         const re = await finalresponse.split(".");        
         await setText(re);
+        setLoading(true);
       } catch (err) {
         console.log(err);
       }
-      finally {
-        await setLoading(true);
-      }
+
     };
     fetchData();
   }, []);
