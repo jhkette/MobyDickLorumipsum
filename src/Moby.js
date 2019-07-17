@@ -22,7 +22,7 @@ const MobyD = React.memo(function MobyD(props) {
         const finalresponse = await response.text();
         const re = await finalresponse.split(".");        
         await setText(re);
-        setloadingFinished(true);
+        setloadingFinished(!loadingFinished);
       } catch (err) {
         console.log(err);
       }
