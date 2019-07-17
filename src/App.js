@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="App">
       <main className="main">
-        <div className="opacity">
+        <section className="lead">
           <h1>
             Moby Dick - <em>or the whale</em>
           </h1>
@@ -34,7 +34,7 @@ function App() {
             interesting substiute to Lorem Ipsum text. Press copy to copy to
             clipboard.
           </h5>
-        </div>
+        </section>
         <form action="/" method="POST" onSubmit={handleSubmit}>
           <input
             type="number"

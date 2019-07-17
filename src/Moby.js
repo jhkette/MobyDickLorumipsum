@@ -9,7 +9,7 @@ import mobyText from "./moby/moby.txt";
 // only when the form is submitted and new props are sent to component.
 const MobyD = React.memo(function MobyD(props) {
   const [text, setText] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loadingFinished, setloadingFinished] = useState(false);
 
   const textAreaRef = useRef(null);
 
@@ -22,7 +22,7 @@ const MobyD = React.memo(function MobyD(props) {
         const finalresponse = await response.text();
         const re = await finalresponse.split(".");        
         await setText(re);
-        setLoading(true);
+        setloadingFinished(true);
       } catch (err) {
         console.log(err);
       }
@@ -93,12 +93,12 @@ const MobyD = React.memo(function MobyD(props) {
       <button onClick={copyToClipboard} className="clipboard">
         Copy
       </button>
-      <div className="moby">
-      {loading &&
-        <div ref={textAreaRef} dangerouslySetInnerHTML={totalParagraphs()} />
-      }
-      {!loading && <p>Loading...</p> }
-      </div>
+      <article className="moby">
+        {loadingFinished &&
+          <div ref={textAreaRef} dangerouslySetInnerHTML={totalParagraphs()} />
+        }
+        {!loadingFinished && <p>Loading...</p> }
+      </article>
     </div>
    
   );
