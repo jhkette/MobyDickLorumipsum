@@ -1,12 +1,12 @@
 
 
-## Moby Dick Lorem Ipsum
+# Moby Dick Lorum Ipsum
 
-[Moby Dick Lorum Ipsum](https://mobydickipsum.netlify.com/).
+Link to live version: [Moby Dick Lorum Ipsum](https://mobydickipsum.netlify.com/).
 
-A small project to use Random text from moby dick to generate lorum ipsum text. 
+A small React project to generate random text from Moby Dick to generate lorum ipsum 'dummy' text. 
 
 
-# run and build
+## Run and Build
 
-Clone the project and run npm init. npm start will start project on a local server. run npm build to deploy a production version of the site. 
+Clone the project and run npm init. npm start will start project on a local server. Run npm build to deploy a production version of the site. 
