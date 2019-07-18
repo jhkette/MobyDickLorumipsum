@@ -30,7 +30,7 @@ function App() {
           </h1>
 
           <h5>
-            Generates random sentences from Moby Dick to be used as a more
+            Generates random sentences from the entire text of Moby Dick. This can be used as a more
             interesting substiute to Lorem Ipsum text. Press copy to copy to
             clipboard.
           </h5>
